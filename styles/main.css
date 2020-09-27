@@ -51,6 +51,36 @@ header {
 
 .grid div {
   border: 1px solid blue;
-  height: 6.25%;
-  width: 6.25%;
+  height: 6.66%;
+  width: 6.66%;
+}
+
+/* Posicionamoento */
+
+.grid div.cannion {
+  background-image: url('../assets/canion.png');
+  background-repeat: no-repeat;
+  background-size: contain; 
+  cursor: pointer;
+}
+
+.grid div.invadersHigh {
+  background-image: url('../assets/invadersBlue11.png');
+  background-repeat: no-repeat;
+  background-size: contain; 
+  cursor: pointer;
+}
+
+.grid div.invadersMedium {
+  background-image: url('../assets/invadersRed1.jpg');
+  background-repeat: no-repeat;
+  background-size: contain; 
+  cursor: pointer;
+}
+
+.grid div.invadersLow {
+  background-image: url('../assets/invadersLila1.png');
+  background-repeat: no-repeat;
+  background-size: contain; 
+  cursor: pointer;
 }
