@@ -52,10 +52,10 @@ header {
 .grid div {
   border: 1px solid blue;
   height: 6.66%;
-  width: 6.66%;
+  width: 6.66%;  
 }
 
-/* Posicionamoento */
+/* Posicionamiento */
 
 .grid div.cannion {
   background-image: url('../assets/canion.png');
@@ -80,6 +80,24 @@ header {
 
 .grid div.invadersLow {
   background-image: url('../assets/invadersLila1.png');
+  background-repeat: no-repeat;
+  background-size: contain; 
+  cursor: pointer;
+}
+
+/* movimiento */
+/* 
+div#0 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+
+/* Disparos */
+
+.grid div.bala {
+  background-image: url('../assets/balas.png');
   background-repeat: no-repeat;
   background-size: contain; 
   cursor: pointer;
