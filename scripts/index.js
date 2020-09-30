@@ -1,5 +1,31 @@
 console.log('Hola 😊')
 
+//////////////////////////////////////////      Variables      //////////////////////////////////////////
+
+// const points = {
+
+//   HIGH = 150,
+//   MEDIUM = 100,
+//   LOW = 50,
+//   MOTHERSHIP = 300
+
+// }
+
+const HIGH = 150;
+const MEDIUM = 100;
+const LOW = 50;
+const MOTHERSHIP = 300;
+
+
+let pointsHigh = [];
+let pointsMedium = [];
+let pointsLow = [];
+let pointsMotherShip = [];
+
+
+
+
+
 //////////////////////////////////////////      Disposicion de los div      //////////////////////////////////////////
 
 const width = 15;
@@ -173,14 +199,20 @@ function animateDisparos() {
 
     if (cells[positionBala].classList.contains('invadersLow')) {
       cells[positionBala].classList.remove('invadersLow');
+      pointsLow.push(LOW);
+      calculatePoints();
     }
 
     if (cells[positionBala].classList.contains('invadersMedium')) {
       cells[positionBala].classList.remove('invadersMedium');
+      pointsMedium.push(MEDIUM);
+      calculatePoints();
     }
 
     if (cells[positionBala].classList.contains('invadersHigh')) {
       cells[positionBala].classList.remove('invadersHigh');
+      pointsHigh.push(HIGH);
+      calculatePoints();
     }
 
     console.log(`elimina ${positionBala}`)
@@ -195,6 +227,68 @@ function animateDisparos() {
   }
 
 }
+
+//////////////////////////////////////////      Puntuacion      //////////////////////////////////////////
+
+// const points = {
+
+//   HIGH = 150,
+//   MEDIUM = 100,
+//   LOW = 50,
+//   MOTHERSHIP = 300
+
+// }
+
+// let pointsHigh = [];
+// let pointsMedium = [];
+// let pointsLow = [];
+// let pointsMotherShip = [];
+
+function calculatePoints() {
+
+  let sumHigh = 0;
+  let sumMedium = 0;
+  let sumLow = 0;
+  let sumMotherShip = 0;
+  let sumPoints = 0;
+
+  if (pointsHigh.length > 0) {
+    for (let i = 0; i < pointsHigh.length; i++) {
+      sumHigh += pointsHigh[i];
+    }
+  }
+  if (pointsMedium.length > 0) {
+    for (let i = 0; i < pointsMedium.length; i++) {
+      sumMedium += pointsMedium[i];
+    }
+  }
+  if (pointsLow.length > 0) {
+    for (let i = 0; i < pointsLow.length; i++) {
+      sumLow += pointsLow[i];
+    }
+  }
+  if (pointsMotherShip.length > 0) {
+    for (let i = 0; i < pointsMotherShip.length; i++) {
+      sumMotherShip += pointsMotherShip[i];
+    }
+  }
+
+  sumPoints = sumHigh + sumMedium + sumLow;
+
+  const scoreLabel = document.querySelector('.score');
+  scoreLabel.innerText = sumPoints
+
+  //return sumPoints;
+
+}
+
+
+
+
+
+
+
+
 
 window.addEventListener('keyup', handleKeyPress);
 window.addEventListener('keyup', handleKeyPressShooting);
