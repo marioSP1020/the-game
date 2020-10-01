@@ -363,6 +363,7 @@ function motionAnimation() {
 
     const labelGameOver = document.getElementById('7');
     labelGameOver.innerText = 'GAME OVER';
+    divGameOver.style.display = 'block';
 
   }
 
@@ -502,6 +503,37 @@ function calculatePoints() {
   //return sumPoints;
 
 }
+
+//////////////////////////////////////////      Animaciones      //////////////////////////////////////////
+
+const divGameOver = document.getElementById('game-over');
+divGameOver.style.display = 'none';
+
+const divPoints = document.getElementById('points');
+divPoints.style.display = 'none';
+
+function hidePoints() {
+  divPoints.style.display = 'none';
+}
+
+function displayPoints() {
+  divPoints.style.display = 'block';
+}
+
+
+
+
+/*
+setTimeout(function () {
+  nuevo_elemento = document.createElement("div");
+  container.appendChild(nuevo_elemento);
+}, 1000);
+*/
+
+
+
+
+
 
 
 window.addEventListener('keyup', handleKeyPress);
