@@ -211,6 +211,7 @@ function motionAnimation() {
 
   }
   ///////////////      Movimiento abajo      ///////////////
+  /*
 
   else if (abajo) {
 
@@ -348,7 +349,7 @@ function motionAnimation() {
     clearInterval(animationInvaders);
 
   }
-
+  */
   console.log(cannionPositionY);
   console.log(posYL2);
   console.log(posYL1);
@@ -409,6 +410,14 @@ function animateDisparos() {
 
   //Cuando se da la colisión
 
+  /*
+  let positionHigh = [48, 49, 50, 51, 52, 53, 54, 55, 56];
+  let positionMedium1 = [63, 64, 65, 66, 67, 68, 69, 70, 71];
+  let positionMedium2 = [78, 79, 80, 81, 82, 83, 84, 85, 86];
+  let positionLow1 = [93, 94, 95, 96, 97, 98, 99, 100, 101];
+  let positionLow2 = [108, 109, 110, 111, 112, 113, 114, 115, 116];
+  */
+
   if (cells[positionBala].classList.contains('invadersLow') || cells[positionBala].classList.contains('invadersMedium') ||
     cells[positionBala].classList.contains('invadersHigh')) {
 
@@ -419,6 +428,20 @@ function animateDisparos() {
 
     if (cells[positionBala].classList.contains('invadersLow')) {
       cells[positionBala].classList.remove('invadersLow');
+
+      const posLow2 = positionLow2.indexOf(cells[positionBala]);
+      const posLow1 = positionLow1.indexOf(cells[positionBala]);
+
+      console.log(`Low2 ${posLow2}`);
+      console.log(`Low1 ${posLow1}`);
+
+      if (posLow2 !== -1) {
+        positionLow2.slice(posLow2, 1);
+      }
+      if (posLow1 !== -1) {
+        positionLow1.slice(posLow1, 1);
+      }
+
       pointsLow.push(LOW);
       calculatePoints();
     }
