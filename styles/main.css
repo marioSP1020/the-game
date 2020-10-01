@@ -35,6 +35,7 @@ header {
 .wrapper-grid {
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 
 .grid {
@@ -101,4 +102,43 @@ div#0 {
   background-repeat: no-repeat;
   background-size: contain; 
   cursor: pointer;
+}
+
+/*Animaciones - points - Game Over*/
+
+#game-over {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  bottom: 500px;  
+  background-color: hsla( 0turn , 100% ,50% , 0.5 );
+  color: white;
+  font-weight: bolder;
+  font-size: 20px;
+  left: 150px;
+  display: flex;
+  text-align: center;
+  align-items: center;  
+}
+
+.btnInicio {
+  margin: 10px;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  padding: 6px;
+  font-size: 24px;
+}
+
+#points {
+  position: relative;
+  width: 40px;
+  height: 25px;
+  bottom: 550px;
+  left: 280px;
+  background-color: hsla( 0turn , 100% ,50% , 0.5 );
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+  text-align: center;
 }

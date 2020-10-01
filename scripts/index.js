@@ -212,6 +212,9 @@ function motionAnimation() {
   }
   ///////////////      Movimiento abajo      ///////////////
 
+  //COMENTO PARA VER LA PUNTUACION >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
   else if (abajo) {
 
     //line Low
@@ -349,6 +352,9 @@ function motionAnimation() {
 
   }
 
+  //  COMENTO PARA VER LA PUNTUACION >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
   console.log(cannionPositionY);
   console.log(posYL2);
   console.log(posYL1);
@@ -361,11 +367,11 @@ function motionAnimation() {
 
     clearInterval(animationInvaders);
 
-    const labelGameOver = document.getElementById('7');
-    labelGameOver.innerText = 'GAME OVER';
+    sonidoGameOver();
+
+    divGameOver.style.display = 'block';
 
   }
-
 
 }
 
@@ -385,6 +391,8 @@ const handleKeyPressShooting = (event) => {
   const y = Math.floor(cannionPosition / 15);
 
   if (keyCode === 32) {
+
+    sonidoDisparos();
 
     console.log('aqui')
     //addBala(cannionPosition - width);
@@ -411,26 +419,50 @@ function animateDisparos() {
   if (cells[positionBala].classList.contains('invadersLow') || cells[positionBala].classList.contains('invadersMedium') ||
     cells[positionBala].classList.contains('invadersHigh')) {
 
-    cells.slice(positionBala, 1);
+    //cells.slice(positionBala, 1);
     cells[positionBala].classList.remove('bala');
 
     //Eliminacion de los 3 tipos de invaders
 
     if (cells[positionBala].classList.contains('invadersLow')) {
       cells[positionBala].classList.remove('invadersLow');
+      //cells.slice(positionBala, 1);
+
+      //sonido colision
+      sonidoColision();
+
       pointsLow.push(LOW);
+      setPoints(LOW);
+      displayPoints();
+      setTimeout(hidePoints, 500);
       calculatePoints();
     }
 
     if (cells[positionBala].classList.contains('invadersMedium')) {
       cells[positionBala].classList.remove('invadersMedium');
+      //cells.slice(positionBala, 1);
+
+      //sonido colision
+      sonidoColision();
+
       pointsMedium.push(MEDIUM);
+      setPoints(MEDIUM);
+      displayPoints();
+      setTimeout(hidePoints, 500);
       calculatePoints();
     }
 
     if (cells[positionBala].classList.contains('invadersHigh')) {
       cells[positionBala].classList.remove('invadersHigh');
+      //cells.slice(positionBala, 1);
+
+      //sonido colision
+      sonidoColision();
+
       pointsHigh.push(HIGH);
+      setPoints(HIGH);
+      displayPoints();
+      setTimeout(hidePoints, 500);
       calculatePoints();
     }
 
@@ -502,6 +534,64 @@ function calculatePoints() {
   //return sumPoints;
 
 }
+
+//////////////////////////////////////////      Animaciones      //////////////////////////////////////////
+
+const divGameOver = document.getElementById('game-over');
+divGameOver.style.display = 'none';
+
+const divPoints = document.getElementById('points');
+divPoints.style.display = 'none';
+
+const audioCannion = document.getElementById('sound-cannion');
+const audioBang = document.getElementById('sound-bang');
+const audioOver = document.getElementById('sound-over');
+
+function hidePoints() {
+  divPoints.style.display = 'none';
+}
+
+function displayPoints() {
+  divPoints.style.display = 'block';
+}
+
+function setPoints(point) {
+  divPoints.innerText = point;
+}
+
+function sonidoColision() {
+  const source = './sounds/tink.wav';
+  audioBang.src = source;
+  audioBang.play();
+}
+
+function sonidoDisparos() {
+  const source = './sounds/clap.wav';
+  audioCannion.src = source;
+  audioCannion.play();
+}
+
+function sonidoGameOver() {
+  const source = './sounds/over.wav';
+  audioOver.src = source;
+  audioOver.play();
+}
+
+
+
+
+
+/*
+setTimeout(function () {
+  nuevo_elemento = document.createElement("div");
+  container.appendChild(nuevo_elemento);
+}, 1000);
+*/
+
+
+
+
+
 
 
 window.addEventListener('keyup', handleKeyPress);
