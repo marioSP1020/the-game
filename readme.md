@@ -10,12 +10,20 @@ The player can only move left or right. The aliens also move from left to right,
 
 Once the player has destroyed a wave of aliens, the game starts again. The aim is to achieve the highest score possible before either being destroyed by the aliens, or allowing them to reach the planet's surface.
 
-
 ### Thecnologies
+
+HTML5.
+CSS3.
+Javascript.
 
 ## How to install
 
+Realizar un clon del repositorio 
+
 ## How to run
+
+Recomendable instalar el editor VScode y la extensión Live Server
+En todo caso , si no es así ejecutar desde el navegador el fichero index.html
 
 ## Documentation
 
