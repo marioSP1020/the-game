@@ -13,9 +13,14 @@ picture {
   display: block;
 }
 
-body {
+body {  
   height: 100vh;
+  /* height: 1000px; */
+  width: 100vw;
   margin: 0;
+  background-image: url('https://i.pinimg.com/originals/2d/0e/03/2d0e035e6f9c10b952a79a0f9a4e0778.gif'); 
+  /* background-repeat: no-repeat; */
+  background-size: contain; 
 }
 
 .wrapper {
@@ -25,17 +30,34 @@ body {
 }
 
 header {
+  width: 75%;
   height: 5%;
+  margin: auto;
+  margin-bottom: 5px; 
+  color: aqua; 
 }
 
 .statistics {
   height: 15%;
+  width: 75%;
+  margin: auto;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  color: aqua; 
+
 }
 
 .wrapper-grid {
+  /* background-image: url('https://i.pinimg.com/originals/2d/0e/03/2d0e035e6f9c10b952a79a0f9a4e0778.gif'); */
+  /* background-repeat: no-repeat; */
+  /* background-size: contain;  */
+  /* background-color: radial-gradient(center center, circle, black, #1162ac); */
+  /* background-color: white;  */
   display: flex;
   justify-content: center;
   flex-direction: column;
+  align-items: center;
 }
 
 .grid {
@@ -48,10 +70,12 @@ header {
   align-content: center;
   height: 600px;
   width: 600px;
+  background-color: white;
 }
 
 .grid div {
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
+  
   height: 6.66%;
   width: 6.66%;  
 }
@@ -60,6 +84,7 @@ header {
 
 .grid div.cannion {
   background-image: url('../assets/canion.png');
+  /* background-color: black; */ 
   background-repeat: no-repeat;
   background-size: contain; 
   cursor: pointer;
@@ -110,12 +135,12 @@ div#0 {
   position: relative;
   width: 300px;
   height: 300px;
-  bottom: 500px;  
+  bottom: 450px;  
   background-color: hsla( 0turn , 100% ,50% , 0.5 );
   color: white;
   font-weight: bolder;
   font-size: 20px;
-  left: 150px;
+  left: -3px; 
   display: flex;
   text-align: center;
   align-items: center;  
@@ -123,14 +148,16 @@ div#0 {
 
 #winner {
   position: relative;
-  width: 200px;
-  height: 260px;
+  width: 300px;
+  height: 380px;
   bottom: 500px;  
   background-image: url('../assets/guerrero.jpg'); 
+  background-repeat: no-repeat;
+  background-size: contain;
   color: white;
   font-weight: bolder;
   font-size: 20px;
-  left: 200px;
+  left: 8px;
   display: flex;
   text-align: center;
   align-items: center;  
@@ -141,12 +168,11 @@ div#0 {
   width: 550px;
   height: 550px;
   bottom: 600px;  
-  /* background-image: url('../assets/guerrero2.jpg');  */
   background-image: url('https://darksiderconfessions.files.wordpress.com/2019/07/screen-0-800px-25fps.gif?w=900%22%20alt=%22screen-0%20(800px,%2025fps)%22');
   color: white;
   font-weight: bolder;
   font-size: 20px;
-  left: 20px;
+  /* left: 20px; */
   display: flex;
   text-align: center;
   align-items: center;  
@@ -173,3 +199,50 @@ div#0 {
   font-size: 25px;
   text-align: center;
 }
+
+/* MOBILE */
+
+@media screen and (max-width: 600px) {
+  .grid {
+    height: 400px;
+    width: 400px;
+  }
+
+  header {
+    width: 100%;     
+  }
+
+  .statistics {
+    height: 15%;
+    width: 100%;
+  }
+  #game-over {  
+    width: 300px;
+    height: 300px;
+    bottom: 350px;    
+    left: 1px;    
+  }
+
+  #winner {  
+    width: 200px;
+    height: 260px;
+    bottom: 335px;  
+    left: 4px;      
+  }
+
+  #inicio {
+    width: 380px;
+    height: 380px;
+    bottom: 390px; 
+    left: 2px; 
+  }
+
+  #points {
+    position: relative;
+    width: 40px;
+    height: 25px;
+    bottom: 370px;
+    left: 1px;
+  }
+
+}       
