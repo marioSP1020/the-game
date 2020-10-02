@@ -34,7 +34,7 @@ const cells = [];
 
 for (let i = 0; i < cellCount; i++) {
   const cell = document.createElement('div');
-  cell.innerText = i;
+  //cell.innerText = i;
   cell.setAttribute("id", i);
   grid.appendChild(cell);
   cells.push(cell);
@@ -536,6 +536,7 @@ function animateDisparos() {
     if (positionHigh.length === 0 && positionMedium1.length === 0 && positionMedium2.length === 0 && positionLow1.length === 0 && positionLow2.length === 0) {
 
       clearInterval(animacionBala);
+      cells[cannionPosition].classList.remove('cannion')
       divWinner.style.display = 'block';
 
     }
