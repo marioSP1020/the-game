@@ -121,6 +121,37 @@ div#0 {
   align-items: center;  
 }
 
+#winner {
+  position: relative;
+  width: 200px;
+  height: 260px;
+  bottom: 500px;  
+  background-image: url('../assets/guerrero.jpg'); 
+  color: white;
+  font-weight: bolder;
+  font-size: 20px;
+  left: 200px;
+  display: flex;
+  text-align: center;
+  align-items: center;  
+}
+
+#inicio {
+  position: relative;
+  width: 550px;
+  height: 550px;
+  bottom: 600px;  
+  /* background-image: url('../assets/guerrero2.jpg');  */
+  background-image: url('https://darksiderconfessions.files.wordpress.com/2019/07/screen-0-800px-25fps.gif?w=900%22%20alt=%22screen-0%20(800px,%2025fps)%22');
+  color: white;
+  font-weight: bolder;
+  font-size: 20px;
+  left: 20px;
+  display: flex;
+  text-align: center;
+  align-items: center;  
+}
+
 .btnInicio {
   margin: 10px;
   background-color: black;
