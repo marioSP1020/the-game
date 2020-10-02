@@ -1,6 +1,6 @@
 console.log('Hola 😊')
 
-//////////////////////////////////////////      Variables      //////////////////////////////////////////
+//////////////////////////////////////////      Variables para el calculo de puntos     //////////////////////////////////////////
 
 // const points = {
 
@@ -41,7 +41,7 @@ for (let i = 0; i < cellCount; i++) {
 
 }
 
-//////////////////////////////////////////      Posicionamiento      //////////////////////////////////////////
+//////////////////////////////////////////      Posicionamiento invasores y cañón     //////////////////////////////////////////
 
 //cannion
 
@@ -133,7 +133,7 @@ let animationInvaders;
 
 function moveBlock() {
 
-  animationInvaders = setInterval(motionAnimation, 1000);
+  animationInvaders = setInterval(motionAnimation, 2000);
 
 }
 
@@ -354,14 +354,14 @@ function motionAnimation() {
 
   //  COMENTO PARA VER LA PUNTUACION >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-
+  /*
   console.log(cannionPositionY);
   console.log(posYL2);
   console.log(posYL1);
   console.log(posYM2);
   console.log(posYM1);
   console.log(posYH);
-
+  */
 
   if (cannionPositionY === posYL2 || cannionPositionY === posYL1 || cannionPositionY === posYM2 || cannionPositionY === posYM1 || cannionPositionY === posYH) {
 
@@ -414,7 +414,16 @@ function animateDisparos() {
 
   addBala(positionBala)
 
-  //Cuando se da la colisión
+  //Cuando se producen colisiones
+
+  /*
+  let positionHigh = [48, 49, 50, 51, 52, 53, 54, 55, 56];
+  let positionMedium1 = [63, 64, 65, 66, 67, 68, 69, 70, 71];
+  let positionMedium2 = [78, 79, 80, 81, 82, 83, 84, 85, 86];
+  let positionLow1 = [93, 94, 95, 96, 97, 98, 99, 100, 101];
+  let positionLow2 = [108, 109, 110, 111, 112, 113, 114, 115, 116];
+  */
+
 
   if (cells[positionBala].classList.contains('invadersLow') || cells[positionBala].classList.contains('invadersMedium') ||
     cells[positionBala].classList.contains('invadersHigh')) {
@@ -426,7 +435,23 @@ function animateDisparos() {
 
     if (cells[positionBala].classList.contains('invadersLow')) {
       cells[positionBala].classList.remove('invadersLow');
-      //cells.slice(positionBala, 1);
+
+      //Eliminacion del array positionLow >>>>>>>>>>
+      const posLow2 = positionLow2.indexOf(positionBala);
+      const posLow1 = positionLow1.indexOf(positionBala);
+      console.log(posLow2);
+      console.log(posLow1);
+
+      if (posLow2 !== -1) {
+        positionLow2.splice(posLow2, 1);
+      }
+      console.log(positionLow2);
+
+      if (posLow1 !== -1) {
+        positionLow1.splice(posLow1, 1);
+      }
+      console.log(positionLow1);
+      //Fin eliminacion del array >>>>>>>>>>
 
       //sonido colision
       sonidoColision();
@@ -437,10 +462,28 @@ function animateDisparos() {
       setTimeout(hidePoints, 500);
       calculatePoints();
     }
+    //fin if invadersLow
 
     if (cells[positionBala].classList.contains('invadersMedium')) {
       cells[positionBala].classList.remove('invadersMedium');
       //cells.slice(positionBala, 1);
+
+      //Eliminacion del array positionMedium >>>>>>>>>>
+      const posMedium2 = positionMedium2.indexOf(positionBala);
+      const posMedium1 = positionMedium1.indexOf(positionBala);
+      console.log(posMedium2);
+      console.log(posMedium1);
+
+      if (posMedium2 !== -1) {
+        positionMedium2.splice(posMedium2, 1);
+      }
+      console.log(positionMedium2);
+
+      if (posMedium1 !== -1) {
+        positionMedium1.splice(posMedium1, 1);
+      }
+      console.log(positionMedium1);
+      //Fin eliminacion del array >>>>>>>>>
 
       //sonido colision
       sonidoColision();
@@ -451,10 +494,22 @@ function animateDisparos() {
       setTimeout(hidePoints, 500);
       calculatePoints();
     }
+    //fin if invadersMedium
 
     if (cells[positionBala].classList.contains('invadersHigh')) {
       cells[positionBala].classList.remove('invadersHigh');
       //cells.slice(positionBala, 1);
+
+      //Eliminacion del array positionHigh >>>>>>>>>>
+      const posHigh = positionHigh.indexOf(positionBala);
+      console.log(posHigh);
+
+      if (posHigh !== -1) {
+        positionHigh.splice(posHigh, 1);
+      }
+      console.log(positionLow2);
+
+      //Fin eliminacion del array >>>>>>>>>
 
       //sonido colision
       sonidoColision();
@@ -465,13 +520,34 @@ function animateDisparos() {
       setTimeout(hidePoints, 500);
       calculatePoints();
     }
+    //fin if invadersHigh
 
     console.log(`elimina ${positionBala}`)
+
+    //Cuando se aniquilan a todos los invasores
+    /*
+    let positionHigh = [48, 49, 50, 51, 52, 53, 54, 55, 56];
+    let positionMedium1 = [63, 64, 65, 66, 67, 68, 69, 70, 71];
+    let positionMedium2 = [78, 79, 80, 81, 82, 83, 84, 85, 86];
+    let positionLow1 = [93, 94, 95, 96, 97, 98, 99, 100, 101];
+    let positionLow2 = [108, 109, 110, 111, 112, 113, 114, 115, 116];
+    */
+
+    if (positionHigh.length === 0 && positionMedium1.length === 0 && positionMedium2.length === 0 && positionLow1.length === 0 && positionLow2.length === 0) {
+
+      clearInterval(animacionBala);
+      divWinner.style.display = 'block';
+
+    }
+
+
 
     //Detengo el setInterval
 
     clearInterval(animacionBala);
   }
+  //fin if colisiones
+
   //Cuando no existe colisión y llega al final/limite del area del grid
 
   if (positionBala < width) {
@@ -540,8 +616,14 @@ function calculatePoints() {
 const divGameOver = document.getElementById('game-over');
 divGameOver.style.display = 'none';
 
+const divWinner = document.getElementById('winner');
+divWinner.style.display = 'none';
+
 const divPoints = document.getElementById('points');
 divPoints.style.display = 'none';
+
+const divInicio = document.getElementById('inicio');
+divInicio.style.display = 'none';
 
 const audioCannion = document.getElementById('sound-cannion');
 const audioBang = document.getElementById('sound-bang');
@@ -577,17 +659,14 @@ function sonidoGameOver() {
   audioOver.play();
 }
 
+function hideInicio() {
+  divInicio.style.display = 'none';
+}
 
-
-
-
-/*
-setTimeout(function () {
-  nuevo_elemento = document.createElement("div");
-  container.appendChild(nuevo_elemento);
-}, 1000);
-*/
-
+function displayInicio() {
+  divInicio.style.display = 'block';
+  setTimeout(hideInicio, 1000);
+}
 
 
 
@@ -596,4 +675,5 @@ setTimeout(function () {
 
 window.addEventListener('keyup', handleKeyPress);
 window.addEventListener('keyup', handleKeyPressShooting);
+window.addEventListener('DOMContentLoaded', displayInicio);
 window.addEventListener('DOMContentLoaded', moveBlock);
