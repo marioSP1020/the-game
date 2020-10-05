@@ -191,8 +191,8 @@ div#0 {
   position: relative;
   width: 40px;
   height: 25px;
-  bottom: 550px;
-  left: 280px;
+  bottom: 560px;
+  left: -9px;
   background-color: hsla( 0turn , 100% ,50% , 0.5 );
   color: white;
   font-weight: bold;
@@ -200,7 +200,22 @@ div#0 {
   text-align: center;
 }
 
-/* MOBILE */
+/* logic supership */
+
+.grid div.superShip {
+  background-image: url('../assets/nave.png');
+  background-repeat: no-repeat;
+  background-size: contain; 
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+/* MOBILE - RESPONSIVE*/
 
 @media screen and (max-width: 600px) {
   .grid {
@@ -241,8 +256,8 @@ div#0 {
     position: relative;
     width: 40px;
     height: 25px;
-    bottom: 370px;
-    left: 1px;
+    bottom: 380px;
+    left: -4px;
   }
 
 }       
