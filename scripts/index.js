@@ -34,7 +34,7 @@ const cells = [];
 
 for (let i = 0; i < cellCount; i++) {
   const cell = document.createElement('div');
-  //cell.innerText = i;
+  cell.innerText = i;
   cell.setAttribute("id", i);
   grid.appendChild(cell);
   cells.push(cell);
@@ -111,6 +111,52 @@ const handleKeyPress = (event) => {
 
 addCannion(cannionPosition);
 
+//////////////////////////////////////////      Mover supernave de invaders      //////////////////////////////////////////
+
+const addSuperShip = (index) => cells[index].classList.add('superShip');
+const removeSuperShip = (index) => cells[index].classList.remove('superShip');
+
+//let positionSuperShip = [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29];
+let positionSS = 15;
+let moveToSide = true;
+let animationSuperShip;
+let intervaloSuperShip;
+
+console.log(positionSS);
+
+
+function intervalosMoveSuperShip() {
+
+  intervaloSuperShip = setInterval(moveSuperShip, 50000);
+
+}
+
+function moveSuperShip() {
+
+  positionSS = 15;
+  addSuperShip(positionSS);
+  animationSuperShip = setInterval(superShipAnimation, 1500);
+
+}
+
+function superShipAnimation() {
+  console.log(`antes de remover ${positionSS}`);
+  removeSuperShip(positionSS);
+
+  positionSS++;
+
+  console.log(`antes de add ${positionSS}`);
+  addSuperShip(positionSS);
+
+  if (positionSS === 29) {
+    clearInterval(animationSuperShip);
+    removeSuperShip(positionSS);
+  }
+
+}
+
+
+
 
 //////////////////////////////////////////      Mover el bloque de invaders      //////////////////////////////////////////
 
@@ -134,6 +180,7 @@ let animationInvaders;
 function moveBlock() {
 
   animationInvaders = setInterval(motionAnimation, 2000);
+  //animationSuperShip = setInterval(superShipAnimation, 1000);
 
 }
 
@@ -354,15 +401,6 @@ function motionAnimation() {
 
   //  COMENTO PARA VER LA PUNTUACION >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-  /*
-  console.log(cannionPositionY);
-  console.log(posYL2);
-  console.log(posYL1);
-  console.log(posYM2);
-  console.log(posYM1);
-  console.log(posYH);
-  */
-
   if (cannionPositionY === posYL2 || cannionPositionY === posYL1 || cannionPositionY === posYM2 || cannionPositionY === posYM1 || cannionPositionY === posYH) {
 
     clearInterval(animationInvaders);
@@ -374,6 +412,8 @@ function motionAnimation() {
   }
 
 }
+
+
 
 //////////////////////////////////////////      Disparos      //////////////////////////////////////////
 
@@ -671,10 +711,9 @@ function displayInicio() {
 
 
 
-
-
-
 window.addEventListener('keyup', handleKeyPress);
 window.addEventListener('keyup', handleKeyPressShooting);
 window.addEventListener('DOMContentLoaded', displayInicio);
 window.addEventListener('DOMContentLoaded', moveBlock);
+window.addEventListener('DOMContentLoaded', intervalosMoveSuperShip);
+//window.addEventListener('DOMContentLoaded', moveSuperShip);
